@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './shared/sidebar.module';
+import { GifsModule } from './gifs/gifs.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +11,8 @@ import { SharedModule } from './shared/sidebar.module';
   ],
   imports: [
     BrowserModule,
-    SharedModule
+    SharedModule,
+    GifsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
