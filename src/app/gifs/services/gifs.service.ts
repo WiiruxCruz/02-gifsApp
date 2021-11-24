@@ -10,7 +10,15 @@ export class GifsService {
   private _historial: string[] = [];
   public resultados: Gif[] = [];
 
-  constructor( private http: HttpClient) {}
+  constructor( private http: HttpClient) {
+    //this._historial = localStorage.getItem('historial');
+    /*
+    if( localStorage.getItem('historial') ){
+      this._historial = JSON.parse( localStorage.getItem('historial')! );
+    }
+    */
+   this._historial = JSON.parse( localStorage.getItem('historial')! ) || [];
+  }
 
   get historial() {
 
@@ -24,6 +32,8 @@ export class GifsService {
     if( !this._historial.includes( query )){
       this._historial.unshift( query );
       this._historial = this._historial.splice(0,10);
+
+      localStorage.setItem('historial', JSON.stringify(this._historial) );
     }
 
     //utilización de observables
