@@ -7,7 +7,11 @@ import { ResultadosComponent } from './resultados/resultados.component';
 
 
 @NgModule({
-  declarations: [GifsPageComponent, BusquedaComponent, ResultadosComponent],
+  declarations: [
+    GifsPageComponent,
+    BusquedaComponent,
+    ResultadosComponent
+  ],
   imports: [
     CommonModule
   ],
