@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class GifsService {
   private apiKey: string = '8Y9iQ9O5doXu7diu6R2eX54fN1Bi2h7f';
   private _historial: string[] = [];
+  public resultados: any = [];
 
   constructor( private http: HttpClient) {}
 
@@ -25,10 +26,12 @@ export class GifsService {
     }
 
     //utilización de observables
-    this.http.get('https://api.giphy.com/v1/gifs/search?api_key=8Y9iQ9O5doXu7diu6R2eX54fN1Bi2h7f&q=dbz&limit=10')
+
+    this.http.get(`https://api.giphy.com/v1/gifs/search?api_key=8Y9iQ9O5doXu7diu6R2eX54fN1Bi2h7f&q=${ query }&limit=10`)
     .subscribe(
       ( resp: any ) => {
         console.log(resp.data);
+        this.resultados = resp.data;
       }
     )
 
