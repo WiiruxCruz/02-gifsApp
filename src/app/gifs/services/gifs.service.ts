@@ -18,6 +18,7 @@ export class GifsService {
     }
     */
    this._historial = JSON.parse( localStorage.getItem('historial')! ) || [];
+   this.resultados = JSON.parse( localStorage.getItem('resultados')! ) || [];
   }
 
   get historial() {
@@ -34,6 +35,7 @@ export class GifsService {
       this._historial = this._historial.splice(0,10);
 
       localStorage.setItem('historial', JSON.stringify(this._historial) );
+
     }
 
     //utilización de observables
@@ -43,6 +45,7 @@ export class GifsService {
       ( resp ) => {
         console.log(resp.data);
         this.resultados = resp.data;
+        localStorage.setItem('resultados', JSON.stringify(this.resultados) );
       }
     )
 
